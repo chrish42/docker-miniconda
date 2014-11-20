@@ -16,7 +16,7 @@ ONBUILD RUN useradd --system --user-group --home-dir /app app
 ONBUILD RUN mkdir /app
 ONBUILD WORKDIR /app
 ONBUILD COPY conda_requirements.txt requirements.txt /app/
-ONBUILD RUN conda create -p /env --yes --file /app/conda_requirements.txt
+ONBUILD RUN conda create -p /env --yes --file /app/conda_requirements.txt pip
 ONBUILD ENV PATH /env/bin:$PATH
 ONBUILD RUN pip install -r /app/requirements.txt
 ONBUILD USER app
